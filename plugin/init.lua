@@ -186,35 +186,36 @@ local function apply_to_config(config)
 		mod_seperator = "-",
 	}
 	local scheme = wezterm.color.get_builtin_schemes()["Gruvbox Light"]
+
 	scheme.background = "red"
 	local colors = {
-		key_hint_seperator = scheme.colors.foreground,
-		key = scheme.colors.foreground,
-		hint = scheme.colors.foreground,
-		bg = scheme.colors.background,
-		left_bg = scheme.colors.background,
+		key_hint_seperator = scheme.foreground,
+		key = scheme.foreground,
+		hint = scheme.foreground,
+		bg = scheme.background,
+		left_bg = scheme.background,
 	}
 
-	local fg_status_color = config.colors.background
+	local fg_status_color = scheme.background
 	local status_text =
-		require("ui_mode").get_hint_status_text(icons, colors, { bg = config.colors.ansi[2], fg = fg_status_color })
+		require("ui_mode").get_hint_status_text(icons, colors, { bg = scheme.ansi[2], fg = fg_status_color })
 
 	add_mode("UI", require("ui_mode").key_table, status_text)
 
 	status_text =
-		require("scroll_mode").get_hint_status_text(icons, colors, { bg = config.colors.ansi[7], fg = fg_status_color })
+		require("scroll_mode").get_hint_status_text(icons, colors, { bg = scheme.ansi[7], fg = fg_status_color })
 	add_mode("Scroll", require("scroll_mode").key_table, status_text)
 
 	status_text =
-		require("copy_mode").get_hint_status_text(icons, colors, { bg = config.colors.ansi[4], fg = fg_status_color })
+		require("copy_mode").get_hint_status_text(icons, colors, { bg = scheme.ansi[4], fg = fg_status_color })
 	add_mode("copy_mode", require("copy_mode").key_table, status_text)
 
 	status_text =
-		require("search_mode").get_hint_status_text(icons, colors, { bg = config.colors.ansi[6], fg = fg_status_color })
+		require("search_mode").get_hint_status_text(icons, colors, { bg = scheme.ansi[6], fg = fg_status_color })
 	add_mode("search_mode", require("search_mode").key_table, status_text)
 
 	status_text =
-		require("visual_mode").get_hint_status_text(icons, colors, { bg = config.colors.ansi[3], fg = fg_status_color })
+		require("visual_mode").get_hint_status_text(icons, colors, { bg = scheme.ansi[3], fg = fg_status_color })
 	add_mode("Visual", {}, status_text)
 
 	config.key_tables = key_tables
