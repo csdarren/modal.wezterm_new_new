@@ -179,7 +179,7 @@ local function exit_all_modes(name)
 end
 
 local function apply_to_config(config)
-	enable_defaults("https://github.com/MLFlexer/modal.wezterm")
+	enable_defaults("https://github.com/csdarren/modal.wezterm")
 	local icons = {
 		left_seperator = wezterm.nerdfonts.ple_left_half_circle_thick,
 		key_hint_seperator = "  ",
