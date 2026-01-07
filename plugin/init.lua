@@ -185,9 +185,9 @@ local function apply_to_config(config)
 		key_hint_seperator = "  ",
 		mod_seperator = "-",
 	}
-	local scheme = wezterm.color.get_builtin_schemes()["Gruvbox Light"]
+	local scheme = wezterm.color.get_builtin_schemes()["Gruvbox Material (Gogh)"]
 
-	scheme.background = "red"
+	scheme.background = "#262a2b"
 	local colors = {
 		key_hint_seperator = scheme.foreground,
 		key = scheme.foreground,
@@ -227,17 +227,17 @@ local function set_default_keys(config)
 	end
 	table.insert(config.keys, {
 		key = "n",
-		mods = "ALT",
+		mods = "LEADER",
 		action = activate_mode("Scroll"),
 	})
 	table.insert(config.keys, {
 		key = "u",
-		mods = "ALT",
+		mods = "LEADER",
 		action = activate_mode("UI"),
 	})
 	table.insert(config.keys, {
 		key = "c",
-		mods = "ALT",
+		mods = "LEADER",
 		action = activate_mode("copy_mode"),
 	})
 end
