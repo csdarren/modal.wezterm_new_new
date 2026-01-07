@@ -199,16 +199,20 @@ local function apply_to_config(config)
 
 	add_mode("UI", require("ui_mode").key_table, status_text)
 
-	status_text = require("scroll_mode").get_hint_status_text(icons, colors, { fg = fg_status_color })
+	status_text =
+		require("scroll_mode").get_hint_status_text(icons, colors, { bg = fg_status_color, fg = fg_status_color })
 	add_mode("Scroll", require("scroll_mode").key_table, status_text)
 
-	status_text = require("copy_mode").get_hint_status_text(icons, colors, { fg = fg_status_color })
+	status_text =
+		require("copy_mode").get_hint_status_text(icons, colors, { bg = fg_status_color, fg = fg_status_color })
 	add_mode("copy_mode", require("copy_mode").key_table, status_text)
 
-	status_text = require("search_mode").get_hint_status_text(icons, colors, { fg = fg_status_color })
+	status_text =
+		require("search_mode").get_hint_status_text(icons, colors, { bg = fg_status_color, fg = fg_status_color })
 	add_mode("search_mode", require("search_mode").key_table, status_text)
 
-	status_text = require("visual_mode").get_hint_status_text(icons, colors, { fg = fg_status_color })
+	status_text =
+		require("visual_mode").get_hint_status_text(icons, colors, { bg = fg_status_color, fg = fg_status_color })
 	add_mode("Visual", {}, status_text)
 
 	config.key_tables = key_tables
